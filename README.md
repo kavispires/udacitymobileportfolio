@@ -20,7 +20,7 @@ You may access a live verion of this project though this temporary dropbox links
 - moved css and js files to the end of the page
 - minified css and js files
 
-[[img/readme-screenshot.jpg|alt="Speed Insights Screenshot"]]
+![Speed Insights Screenshot](img/readme-screenshot.jpg)
 
 ## In views/js/main.js
 
