@@ -24,7 +24,7 @@ You may access a live version of this project though this temporary dropbox link
 
 ## In views/js/main.js
 
-_all modified code in main.js is commented starting with **//CHANGE**_
+_all modified code in main.js is commented starting with **// CHANGE**_
 
 #### General
 
