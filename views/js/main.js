@@ -454,8 +454,9 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+// CHANGE Moved pizzasDiv out of the loop
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -488,15 +489,21 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // CHANGE Moved scrollTop out of the loop
+  // CHANGE Moved scrollTop out of the loop.
   var scroll = document.body.scrollTop / 1250;
   // CHANGE items array was moved to the end of the file.
+
+  // CHANGE declared variable out of the loop.
+  var phase = [];
+  // CHANGE create var count to replace (i % 5) inside loop
+  var count = 0
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(scroll + (i % 5));
+    phase = Math.sin(scroll + count);
 
     // CHANGE Replaced basicLeft to translateX 
     items[i].style.transform = "translateX(" + 100 * phase + "px)";
-
+    count++;
+    if (count > 4) count = 0;
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -523,9 +530,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = Math.round(winW / s) + 1;
 
   var pizzaNum = Math.round(winH / s) * cols;
-
+  //CHANGE declared variable outside of the loop
+  var elem;
   for (var i = 0; i < pizzaNum; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";

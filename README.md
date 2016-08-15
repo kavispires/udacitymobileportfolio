@@ -42,6 +42,7 @@ _all modified code in main.js is commented starting with **//CHANGE**_
 - Replaced basicLeft to transform/translateX to avoid layout rerendering
 - Wrote code to determine the necessary number of columns and pizzas based on window size.
 - Replaced basicLeft to style.Left to be able to use translateX in _updatePositions_
+- Added var count to use instead of i%5 to avoid its complex calculation inside the loop.
 
 
 # Udacity READEME
